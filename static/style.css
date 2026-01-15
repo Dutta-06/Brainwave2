@@ -1,0 +1,81 @@
+/* Base Settings - Royal Theme */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Deep Navy Slate */
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* 1. Typography - Regal Headers */
+h1, h2, h3, .brand-font {
+    font-family: 'Cinzel', serif; /* Roman/Official style font */
+    letter-spacing: 1px;
+}
+
+/* 2. Glass Cards - "Frosted Official Glass" */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 12px; /* Smoother corners, less sharp */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(234, 179, 8, 0.3); /* Gold border on hover */
+}
+
+/* 3. Gold Accents (The "Regal" Touch) */
+.text-gold {
+    color: #fbbf24; /* Amber-400 */
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+}
+
+.border-gold {
+    border-color: #d97706; /* Amber-600 */
+}
+
+.btn-royal {
+    background: linear-gradient(to right, #b45309, #d97706); /* Gold Gradient */
+    color: white;
+    border: 1px solid #f59e0b;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-royal:hover {
+    background: linear-gradient(to right, #d97706, #f59e0b);
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
+}
+
+/* 4. Official Input Fields */
+.input-field {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid #475569;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #fbbf24; /* Gold Focus */
+    background: rgba(15, 23, 42, 0.9);
+}
+
+/* 5. Emblem Animation */
+@keyframes seal-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.seal-spin:hover {
+    animation: seal-spin 10s linear infinite;
+}
