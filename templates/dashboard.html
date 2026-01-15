@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="flex justify-between items-center mb-12 border-b border-slate-700/50 pb-6">
+    <div class="flex items-center gap-4">
+        <div class="w-12 h-12 bg-yellow-600/20 rounded flex items-center justify-center border border-yellow-600/50">
+            <span class="text-2xl text-yellow-500">❖</span>
+        </div>
+        <div>
+            <h2 class="text-2xl text-white font-serif tracking-wide">Command Dashboard</h2>
+            <p class="text-slate-500 text-xs uppercase tracking-widest">Welcome, Officer <span class="text-yellow-500">{{ name }}</span></p>
+        </div>
+    </div>
+    <a href="/logout" class="text-red-400/80 hover:text-red-400 text-[10px] uppercase tracking-widest border border-red-900/30 px-4 py-2 rounded hover:bg-red-900/10 transition">
+        Abort Session
+    </a>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    {% macro dashboard_card(title, icon, items, color_class) %}
+    <div class="glass-panel p-0 overflow-hidden group">
+        <div class="p-6 border-b border-slate-700/50 bg-slate-800/30">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg text-slate-200 font-serif tracking-wide">{{ title }}</h3>
+                <span class="text-2xl opacity-50 group-hover:opacity-100 transition {{ color_class }}">{{ icon }}</span>
+            </div>
+        </div>
+        <div class="p-4">
+            <ul class="space-y-1">
+                {% for label, link in items %}
+                <li>
+                    <a href="{{ link }}" class="block px-4 py-3 rounded hover:bg-slate-700/40 text-sm text-slate-400 hover:text-white transition flex justify-between items-center group-inner">
+                        <span>{{ label }}</span>
+                        <span class="text-[10px] opacity-0 group-inner-hover:opacity-100 text-yellow-500">ACCESS ➜</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endmacro %}
+
+    {{ dashboard_card('Diagnostics', '🩺', [
+        ('Voice Interface', '/feature/diagnostic/voice_interface'),
+        ('Air-Gap Courier', '/feature/diagnostic/airgap_courier'),
+        ('Tractor Doctor', '/feature/diagnostic/tractor_doctor')
+    ], 'text-red-400') }}
+
+    {{ dashboard_card('Agriculture', '🌾', [
+        ('Crop Doctor', '/feature/agriculture/crop_doctor'),
+        ('Inventory Cam', '/feature/agriculture/inventory_cam'),
+        ('Quality Grader', '/feature/agriculture/quality_grader')
+    ], 'text-green-400') }}
+
+    {{ dashboard_card('Intelligence', '🧠', [
+        ('Karya AI Chat', '/feature/intelligence/chat_brain'),
+        ('Manual Search', '/feature/intelligence/rag_search')
+    ], 'text-blue-400') }}
+
+    {{ dashboard_card('Commerce', '⚖️', [
+        ('Contract Maker', '/feature/business/contract_maker'),
+        ('Khata Ledger', '/feature/business/khata_ledger'),
+        ('Rental Scheduler', '/feature/business/rental_scheduler'),
+        ('Barter Match', '/feature/business/barter_match')
+    ], 'text-purple-400') }}
+
+    {{ dashboard_card('Logistics', '🛠', [
+        ('Offline Maps', '/feature/utility/offline_maps'),
+        ('Gov Schemes', '/feature/utility/gov_schemes'),
+        ('Weather Cache', '/feature/utility/weather')
+    ], 'text-orange-400') }}
+
+</div>
+{% endblock %}

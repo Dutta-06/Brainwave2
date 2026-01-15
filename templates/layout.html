@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karya OS | Sovereign Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="flex flex-col">
+    
+    <div class="h-1 w-full bg-gradient-to-r from-yellow-700 via-yellow-400 to-yellow-700"></div>
+    
+    <div class="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-lg px-4">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <div class="bg-slate-900/95 text-yellow-500 border border-yellow-600 px-6 py-4 rounded shadow-2xl flex items-center gap-3 backdrop-blur-md">
+                    <span class="text-xl">❖</span> {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center py-6 text-slate-500 text-xs tracking-widest uppercase border-t border-slate-800 bg-slate-900/50">
+        <p>Karya Operating System • <span class="text-yellow-700">Official Use Only</span> • v2.0</p>
+    </footer>
+
+</body>
+</html>
