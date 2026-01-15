@@ -1,0 +1,30 @@
+# --- Core Framework ---
+Flask
+Flask-Login
+Werkzeug
+gunicorn
+
+# --- Data & Utilities ---
+numpy
+fpdf
+qrcode
+networkx
+requests
+
+# --- Computer Vision ---
+# "headless" is crucial for Cloud/Docker (no GUI)
+opencv-python-headless
+Pillow
+pyzbar
+
+# --- AI & Machine Learning ---
+# These are the heavyweights
+torch
+torchvision
+ultralytics
+openai-whisper
+librosa
+soundfile
+
+# --- LLM (Chat Brain) ---
+llama-cpp-python
